@@ -11,6 +11,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * 知识库层
+ * 接受service 的请求
+ * 操作数据库 响应请求
+ */
 public class UsersRepositoryImpl implements UserRepository {
 
 
@@ -78,10 +83,10 @@ public class UsersRepositoryImpl implements UserRepository {
     @Override
     public void update(Users Users) {
         QueryRunner queryRunner = new QueryRunner();
-        String sql = "update Users set name=?,score=? where id = ?";
+        String sql = "update Users set name=?,score=?,birthday=? where id = ?";
         Connection connection = JDBCTools.getConnection();
         try {
-            queryRunner.update(connection,sql,Users.getName(),Users.getScore(),Users.getId());
+            queryRunner.update(connection,sql,Users.getName(),Users.getScore(),Users.getBirthday(),Users.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

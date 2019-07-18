@@ -1,4 +1,4 @@
-package com.southwind.entity;
+package com.lize.entity;
 
 import java.util.Date;
 
